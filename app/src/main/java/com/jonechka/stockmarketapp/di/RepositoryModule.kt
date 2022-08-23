@@ -2,8 +2,10 @@ package com.jonechka.stockmarketapp.di
 
 import com.jonechka.stockmarketapp.data.csv.CSVParser
 import com.jonechka.stockmarketapp.data.csv.CompanyListingsParser
+import com.jonechka.stockmarketapp.data.csv.IntradayInfoParser
 import com.jonechka.stockmarketapp.data.repository.StockRepositoryImpl
 import com.jonechka.stockmarketapp.domain.model.CompanyListing
+import com.jonechka.stockmarketapp.domain.model.IntradayInfo
 import com.jonechka.stockmarketapp.domain.repository.StockRepository
 import dagger.Binds
 import dagger.Module
@@ -20,6 +22,12 @@ abstract class RepositoryModule {
     abstract fun bindCompanyListingsParser(
         companyListingsParser: CompanyListingsParser
     ): CSVParser<CompanyListing>
+
+    @Binds
+    @Singleton
+    abstract fun bindIntradayInfoParser(
+        intradayInfoParser: IntradayInfoParser
+    ): CSVParser<IntradayInfo>
 
     @Binds
     @Singleton
